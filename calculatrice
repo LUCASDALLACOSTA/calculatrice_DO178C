@@ -13,7 +13,6 @@ def division(a, b):
     else:
         return "Division par zéro"
 
-# Fonction principale pour utiliser la calculatrice
 def calculatrice():
     print("Bienvenue dans la calculatrice !")
     print("1. Addition")
@@ -23,8 +22,28 @@ def calculatrice():
 
     choix = input("Choisissez l'opération (1/2/3/4): ")
 
-    a = float(input("Entrez le premier nombre: "))
-    b = float(input("Entrez le deuxième nombre: "))
+    while choix not in ['1', '2', '3', '4']:
+        print("Choix non disponible")
+        choix = input("Choisissez l'opération (1/2/3/4): ")
+
+    # Saisie de a et b
+    a = input("Entrez le premier nombre: ")
+    while not (all(char.isdigit() or char in ['.', ','] for char in a)):
+        print("Veuillez entrer un nombre.")
+        a = input("Entrez le premier nombre: ")
+
+    b = input("Entrez le deuxième nombre: ")
+    while not (all(char.isdigit() or char in ['.', ','] for char in b)):
+        print("Veuillez entrer un nombre.")
+        b = input("Entrez le deuxième nombre: ")
+
+    # Remplacer les virgules par des points pour permettre la conversion en float
+    a = a.replace(',', '.')
+    b = b.replace(',', '.')
+
+    # Convertir a et b en float
+    a = float(a)
+    b = float(b)
 
     if choix == '1':
         print("Résultat:", addition(a, b))
@@ -34,8 +53,9 @@ def calculatrice():
         print("Résultat:", multiplication(a, b))
     elif choix == '4':
         print("Résultat:", division(a, b))
-    else:
-        print("Opération invalide")
 
 # Appel de la fonction principale pour utiliser la calculatrice
 calculatrice()
+
+
+
