@@ -1,3 +1,5 @@
+##Calculatrice selon la norme DO178C - BLUZAT Clément - DALLA COSTA Lucas - FRANCO Loïc -LEMOINE Gaspard
+
 def addition(a, b):
     return round(a + b, 2)
 
