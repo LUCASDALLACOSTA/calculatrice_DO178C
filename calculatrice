@@ -28,12 +28,12 @@ def calculatrice():
 
     # Saisie de a et b
     a = input("Entrez le premier nombre: ")
-    while not (all(char.isdigit() or char in ['.', ','] for char in a)):
+    while not ((a.lstrip('-').replace('.', '', 1).isdigit() or (a.startswith('-') and a[1:].replace('.', '', 1).isdigit()))):
         print("Veuillez entrer un nombre.")
         a = input("Entrez le premier nombre: ")
 
     b = input("Entrez le deuxième nombre: ")
-    while not (all(char.isdigit() or char in ['.', ','] for char in b)):
+    while not ((b.lstrip('-').replace('.', '', 1).isdigit() or (b.startswith('-') and b[1:].replace('.', '', 1).isdigit()))):
         print("Veuillez entrer un nombre.")
         b = input("Entrez le deuxième nombre: ")
 
