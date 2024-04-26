@@ -1,15 +1,15 @@
 def addition(a, b):
-    return a + b
+    return round(a + b, 2)
 
 def soustraction(a, b):
-    return a - b
+    return round(a - b, 2)
 
 def multiplication(a, b):
-    return a * b
+    return round(a * b, 2)
 
 def division(a, b):
     if b != 0:
-        return a / b
+        return round(a / b, 2)
     else:
         return "Division par zéro"
 
@@ -28,12 +28,12 @@ def calculatrice():
 
     # Saisie de a et b
     a = input("Entrez le premier nombre: ")
-    while not ((a.lstrip('-').replace('.', '', 1).isdigit() or (a.startswith('-') and a[1:].replace('.', '', 1).isdigit()))):
+    while not (all(char.isdigit() or char in ['.', ','] or (char == '-' and len(a) == 1) for char in a)):
         print("Veuillez entrer un nombre.")
         a = input("Entrez le premier nombre: ")
 
     b = input("Entrez le deuxième nombre: ")
-    while not ((b.lstrip('-').replace('.', '', 1).isdigit() or (b.startswith('-') and b[1:].replace('.', '', 1).isdigit()))):
+    while not (all(char.isdigit() or char in ['.', ','] or (char == '-' and len(b) == 1) for char in b)):
         print("Veuillez entrer un nombre.")
         b = input("Entrez le deuxième nombre: ")
 
@@ -56,6 +56,3 @@ def calculatrice():
 
 # Appel de la fonction principale pour utiliser la calculatrice
 calculatrice()
-
-
-
