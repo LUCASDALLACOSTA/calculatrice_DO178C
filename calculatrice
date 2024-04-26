@@ -11,7 +11,7 @@ def division(a, b):
     if b != 0:
         return round(a / b, 2)
     else:
-        return "Division par zéro"
+        return "Division par zéro donc nul"
 
 def calculatrice():
     print("Bienvenue dans la calculatrice !")
